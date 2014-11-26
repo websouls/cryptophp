@@ -12,3 +12,5 @@ chmod +x cryptophp.sh
 nano cryptophp.sh # Change the Email
 
 ./cryptophp.sh
+
+For More Help https://github.com/fox-it/cryptophp
