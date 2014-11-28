@@ -22,6 +22,7 @@ find -L /home/$users/public_html/ -type f -name 'social.png' > /tmp/cryptophp.tx
 done
 if [[ -s "/tmp/cryptophp.hashes" ]]; then
 	cat /tmp/cryptophp.hashes | mail -s "Hash Match Please Check File On Host:$HOSTNAME" $Email
+	rm -rf /tmp/cryptophp.txt
 fi
 
 
@@ -31,6 +32,7 @@ for emails in `cat emails.txt`; do
 done
 if [[ -s "/tmp/cryptophp.cpaneluser" ]]; then
 	cat /tmp/cryptophp.cpaneluser | mail -s "Cpanel User Sending Emails To Backdoor Email On Host:$HOSTNAME" $Email
+	rm -rf /tmp/cryptophp.cpaneluser
 fi
 
 ## Black List Ip Used For Access ##
@@ -39,6 +41,7 @@ for ip in `cat ip.txt`; do
 done
 if [[ -s "/tmp/cryptophp.ip" ]]; then
 	cat /tmp/cryptophp.ip | mail -s "Domain Logs From Black List IP On Host:$HOSTNAME" $Email
+	rm -rf /tmp/cryptophp.ip
 fi
 
 ## Checking Black List Domains
@@ -52,4 +55,5 @@ for domains in `cut -d : -f 2 /etc/domainusers | sed -e "s/ //g"`; do
 done
 if [[ -s "/tmp/cryptophp.domains" ]]; then
 	cat /tmp/cryptophp.domains | mail -s "Please Delete Black List Domains From $HOSTNAME" $Email
+	rm -rf /tmp/cryptophp.domains
 fi
