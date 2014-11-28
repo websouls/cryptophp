@@ -27,7 +27,7 @@ fi
 
 ## Cpanel Use Backdoor ##
 for emails in `cat emails.txt`; do
-	grep $i /var/log/exim_mainlog >> /tmp/cryptophp.cpaneluser
+	grep $emails /var/log/exim_mainlog >> /tmp/cryptophp.cpaneluser
 done
 if [[ -s "/tmp/cryptophp.cpaneluser" ]]; then
 	cat /tmp/cryptophp.cpaneluser | mail -s "Cpanel User Sending Emails To Backdoor Email On Host:$HOSTNAME" $Email
