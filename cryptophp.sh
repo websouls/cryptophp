@@ -5,7 +5,7 @@ Email="support@websouls.com"
 
 ### Matching Hashes ###
 for users in `ls /var/cpanel/users/* | cut -d / -f 5`; do
-find -L /home/$users/public_html/ -type f -name 'social.png' > /tmp/cryptophp.txt
+find -L /home/$users/public_html/ -type f -name 'social*.png' > /tmp/cryptophp.txt
 
 	if [[ -s "/tmp/cryptophp.txt" ]]; then
 		for i in `cat /tmp/cryptophp.txt`; do
@@ -23,6 +23,7 @@ done
 if [[ -s "/tmp/cryptophp.hashes" ]]; then
 	cat /tmp/cryptophp.hashes | mail -s "Hash Match Please Check File On Host:$HOSTNAME" $Email
 	rm -rf /tmp/cryptophp.txt
+	rm -rf /tmp/cryptophp.hashes
 fi
 
 
