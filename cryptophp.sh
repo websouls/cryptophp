@@ -5,7 +5,7 @@ Email="support@websouls.com"
 
 ### Matching Hashes ###
 for users in `ls /var/cpanel/users/* | cut -d / -f 5`; do
-find -L /home/$users/public_html/ -type f -name 'social*.png' > /tmp/cryptophp.txt
+find -L /home/$users/public_html/ -type f -name 'social.png' > /tmp/cryptophp.txt
 
 	if [[ -s "/tmp/cryptophp.txt" ]]; then
 		for i in `cat /tmp/cryptophp.txt`; do
